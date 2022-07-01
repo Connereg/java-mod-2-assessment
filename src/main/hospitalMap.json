@@ -1,0 +1,10 @@
+{
+    name: "hospital",
+    doctorExpertiseMap: {
+        'pediatrics' : [{ name: Dingledorf}, { name: Someguy}]
+        'dermatology' : []
+    }
+
+}
+
+hospital[doctorExpertiseMap][pediatrics].push(newDoc)
