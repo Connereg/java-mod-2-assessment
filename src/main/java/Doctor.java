@@ -41,7 +41,7 @@ public class Doctor {
             for (Patient patient : patientList) {
                 String gotName = patient.getPatientName();
                 String gotSpecialty = patient.getMedicalNeeds();
-                String result = ("Patient Name: " + gotName + ", and thier Medical needs are: " + gotSpecialty);
+                String result = ("Patient Name: " + gotName + " \n Medical needs are: " + gotSpecialty);
     
                 System.out.println(result);
             }

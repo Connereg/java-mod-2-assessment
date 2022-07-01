@@ -37,10 +37,6 @@ public class Main {
 
             // 5. Add the 3 doctors to the Hospital
             hospital.addDoctorToExpertiseMap(doctorSpecialtyInput, doctorObject);
-
-            // doctorList.add(doctorObject);
-            // System.out.println(doctorNameInput + " has been added to the hospital with a
-            // specialty of " + doctorSpecialtyInput);
             seperatorLine();
         }
         System.out.println("All Doctors have been added to the Hospital");
@@ -66,7 +62,7 @@ public class Main {
                     indexLocale += 1;
                     System.out.println(indexLocale + ". " + doctor.getDoctorName());
                 }
-                System.out.println("Please choose a doctor to assign the patient to: ");
+                System.out.println("Please choose a doctor to assign the patient to: (Use the number associated with that Doctor)");
                 int chosenDoctorIndex = 0;
                 try {
                     chosenDoctorIndex = scanner.nextInt();
@@ -94,7 +90,7 @@ public class Main {
             // Radiolgoy --> List(Doctors) -> [BillyBob, Johnny]
             // \ \
             // Function => List Doctors with Availability
-            // User types name of doctor that they want to assign the patient to
+            // User types the number of doctor that they want to assign the patient to
             // (String Comparison vs user input)
             // Add patient to chosen doctors list
 
@@ -109,7 +105,7 @@ public class Main {
         seperatorLine();
         System.out.println((hospital.getHospitalName()).toUpperCase() + " HOSPITAL DETAILS: ");
        for (String key : new HashSet<String>(hospital.getExpertiseMap().keySet())) {
-           System.out.println(key.toUpperCase() + ": ");
+           System.out.println(key.toUpperCase() + " Doctors: ");
            for (Doctor doctor : hospital.getExpertiseMap().get(key)) {
                doctor.getPatientList();
            }
