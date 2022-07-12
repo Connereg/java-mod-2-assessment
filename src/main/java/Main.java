@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         // your code here
 
+        HospitalService hospitalService = new HospitalService();
         // 1. Runner begins, welcomes you to the Hospital world, asks User to name it
         Scanner scanner = new Scanner(System.in);
-        hospitalMakerInstructions();
+        hospitalService.hospitalMakerInstructions();
         String hospitalNameInput = scanner.nextLine();
 
         // 1.5. Initialize Arraylists to store Doctor and Patient objects, to be given
@@ -27,9 +29,9 @@ public class Main {
 
         for (int i = 0; i < 3; i++) {
             // 3. Ask to create 3 doctors, each with a name and specialty
-            doctorMakerInstructions();
+            hospitalService.doctorMakerInstructions();
             String doctorNameInput = scanner.nextLine();
-            doctorSpecialtyInstructions();
+            hospitalService.doctorSpecialtyInstructions();
             String doctorSpecialtyInput = scanner.nextLine();
 
             // 4. Generate 3 doctors with the properties given by user
@@ -37,17 +39,17 @@ public class Main {
 
             // 5. Add the 3 doctors to the Hospital
             hospital.addDoctorToExpertiseMap(doctorSpecialtyInput, doctorObject);
-            seperatorLine();
+            hospitalService.separatorLine();
         }
         System.out.println("All Doctors have been added to the Hospital");
-        seperatorLine();
+        hospitalService.separatorLine();
 
         for (int k = 0; k < 5; k++) {
             // 6. Ask the user to create 5 Patients, each with a name and specialization
             // need
-            patientMakerInstructions();
+            hospitalService.patientMakerInstructions();
             String patientNameInput = scanner.nextLine();
-            patientMedicalNeedsInstructions();
+            hospitalService.patientMedicalNeedsInstructions();
             String patientMedicalNeedInput = scanner.nextLine();
 
             // 7. Generate 5 patients with the properties given by the user
@@ -98,11 +100,11 @@ public class Main {
 
             // System.out.println(patientNameInput + " has been added to the hospital with a
             // specialty need of " + patientMedicalNeedInput);
-            seperatorLine();
+            hospitalService.separatorLine();
         }
         System.out.println("All Patients have been added to the hospital");
-        seperatorLine();
-        seperatorLine();
+        hospitalService.separatorLine();
+        hospitalService.separatorLine();
         System.out.println((hospital.getHospitalName()).toUpperCase() + " HOSPITAL DETAILS: ");
        for (String key : new HashSet<String>(hospital.getExpertiseMap().keySet())) {
            System.out.println(key.toUpperCase() + " Doctors: ");
@@ -110,41 +112,7 @@ public class Main {
                doctor.getPatientList();
            }
        }
-    }
-
-    // ******************************************************
-    // STATIC RUNNER METHODS
-
-    public static void seperatorLine() {
-        System.out.println("****************************************************");
-    }
-
-    public static void hospitalMakerInstructions() {
-        System.out.println("Welcome to the Hospital Constructor Application");
-        System.out.println("Please name your new hospital below: ");
-
-    }
-
-    public static void doctorMakerInstructions() {
-        System.out.println("Please create a doctor to add to the hospital");
-        System.out.println("Please name the Doctor below: ");
-
-    }
-
-    public static void doctorSpecialtyInstructions() {
-        System.out.println("Now give your new doctor addition a specialty");
-        System.out.println("Please name the Doctor specialty below: ");
-
-    }
-
-    public static void patientMakerInstructions() {
-        System.out.println("Please create a Patient to add to the hospital");
-        System.out.println("Please name the Patient below: ");
-    }
-
-    public static void patientMedicalNeedsInstructions() {
-        System.out.println("Now give your new patient addition a specialty need \n I.E: 'Radiaology'");
-        System.out.println("Please name the medical specialty need below: ");
+       scanner.close();
     }
 }
 
